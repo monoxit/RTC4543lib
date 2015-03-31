@@ -125,8 +125,7 @@ uint8_t RTC4543::isRunning(){
   open(DATA_READ);
   data = readBits(8);
   close();
-
-  return data & 0x80;
+  return ~data & 0x80;
 }
 
 void RTC4543::open(uint8_t wr){

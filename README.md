@@ -8,33 +8,38 @@ Place RTC4543lib folder under Arduino sketchbook hardware folder. The current sk
 
 ## API
 
-### RTC4543(uint8_t dataPin, uint8_t clkPin, uint8_t wrPin, uint8_t cePin)
+#### RTC4543(uint8_t dataPin, uint8_t clkPin, uint8_t wrPin, uint8_t cePin)
+Initialize the library with the pin number.
 
-### void set(uint8_t yy,uint8_t mo,uint8_t dd, uint8_t ww,uint8_t hh,uint8_t mi,uint8_t ss)
+#### void set(uint8_t yy,uint8_t mo,uint8_t dd, uint8_t ww,uint8_t hh,uint8_t mi,uint8_t ss)
+Set date and time to RTC-4543.
 
-### uint8_t isRunning()
-Return 0x00 if date time is invalid.
+#### uint8_t isRunning()
+Return 0x00 if RTC detected power failure.
 
-### void now()
+#### void now()
 Update current date time from RTC-4543
 
-### uint8_t getHours(uint8_t form)
+#### uint8_t getHours(uint8_t form)
 form: IN_BCD | IN_BIN
 ```C++
 getHours(RTC4543::IN_BCD);
 ```
+Return Hour in specified form.
+12 in BCD: 00010010
+12 in BIN: 00001100
 
-### uint8_t getMinutes(uint8_t form)
+#### uint8_t getMinutes(uint8_t form)
 
-### uint8_t getSeconds(uint8_t form)
+#### uint8_t getSeconds(uint8_t form)
 
-### uint8_t getYear(uint8_t form)
+#### uint8_t getYear(uint8_t form)
 
-### uint8_t getMonth(uint8_t form)
+#### uint8_t getMonth(uint8_t form)
 
-### uint8_t getDate(uint8_t form)
+#### uint8_t getDate(uint8_t form)
 
-### uint8_t getDay(uint8_t form)
+#### uint8_t getDay(uint8_t form)
 
 
 ## Example

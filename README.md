@@ -1,0 +1,71 @@
+# Project
+A simple Arduino library controling the rial time clock RTC-4543. 
+This library is designed to easily access to the device from Arduino based board including tiny core based board.
+
+## Manual Deployment
+
+Place RTC4543lib folder under Arduino sketchbook hardware folder. The current sketchbook folder is found by Arduino IDE property dialog.  If there is not already a hardware folder in sketchbook folder, create it.
+
+## API
+
+### RTC4543(uint8_t dataPin, uint8_t clkPin, uint8_t wrPin, uint8_t cePin)
+
+### void set(uint8_t yy,uint8_t mo,uint8_t dd, uint8_t ww,uint8_t hh,uint8_t mi,uint8_t ss)
+
+### uint8_t isRunning()
+Return 0x00 if date time is invalid.
+
+### void now()
+Update current date time from RTC-4543
+
+### uint8_t getHours(uint8_t form)
+form: IN_BCD | IN_BIN
+```C++
+getHours(RTC4543::IN_BCD);
+```
+
+### uint8_t getMinutes(uint8_t form)
+
+### uint8_t getSeconds(uint8_t form)
+
+### uint8_t getYear(uint8_t form)
+
+### uint8_t getMonth(uint8_t form)
+
+### uint8_t getDate(uint8_t form)
+
+### uint8_t getDay(uint8_t form)
+
+
+## Example
+
+This code is tested on Attiny45V + RTC4543.
+
+```C++
+#include <rtc4543lib.h>
+
+const PROGMEM uint8_t dataPin = 1;
+const PROGMEM uint8_t clkPin = 0;
+const PROGMEM uint8_t wrPin = 2;
+const PROGMEM uint8_t cePin = 4;
+
+RTC4543 RTC(dataPin,clkPin, wrPin, cePin);
+
+void setup() {
+	uint8_t ss;
+	if(!RTC.isRunning()){
+		// Set (or adjust) time. (yy,MM,dd,ww,hh,mm,ss)
+		// 2015.Mar.31 Tue 20:03:00
+		//RTC.set(15,3,31,3,20,3,0);
+	}
+	RTC.now(); //Get (Update) current date and time from RTC4543
+	ss = RTC.getSeconds(RTC4543::IN_BCD);  //Get seconds in BCD. use IN_BIN for bin value.
+    
+    /* Some codes telling the time.
+    */
+}
+
+```
+
+## License
+license.txt

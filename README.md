@@ -4,7 +4,7 @@ This library is designed to easily access to the device from Arduino based board
 
 ## Manual Deployment
 
-Place RTC4543lib folder under Arduino sketchbook hardware folder. The current sketchbook folder is found by Arduino IDE property dialog.  If there is not already a hardware folder in sketchbook folder, create it.
+Place RTC4543lib folder under Arduino sketchbook libraries folder. The current sketchbook folder is found by Arduino IDE property dialog. If there is not already a libraries folder in sketchbook folder, create it.
 
 ## API
 

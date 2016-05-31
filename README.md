@@ -1,6 +1,6 @@
 # Project
 A simple Arduino library controling the rial time clock RTC-4543. 
-This library is designed to easily access to the device from Arduino based board including tiny core based board.
+This library is designed to easily access to the device from Arduino based board including tiny core based board and ESP8266.
 
 ## Manual Deployment
 
@@ -44,7 +44,7 @@ Return Hour in specified form.
 
 ## Example
 
-This code is tested on Attiny45V + RTC4543.
+This code is tested on Attiny45V + RTC4543 and on ESP8266.
 
 ```C++
 #include <rtc4543lib.h>
@@ -53,6 +53,13 @@ const PROGMEM uint8_t dataPin = 1;
 const PROGMEM uint8_t clkPin = 0;
 const PROGMEM uint8_t wrPin = 2;
 const PROGMEM uint8_t cePin = 4;
+
+/* ESP8266
+const uint8_t dataPin = 5;
+const uint8_t clkPin = 4;
+const uint8_t wrPin = 12;
+const uint8_t cePin = 14;
+*/
 
 RTC4543 RTC(dataPin,clkPin, wrPin, cePin);
 

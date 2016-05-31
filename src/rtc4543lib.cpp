@@ -72,21 +72,21 @@ void RTC4543::set(uint8_t yy,uint8_t mo,uint8_t dd, uint8_t ww,uint8_t hh,uint8_
 
 uint8_t RTC4543::getHours(uint8_t form){
   if(form == IN_BIN)
-    return BCD2BIN(_bcdHours & 0x3F);
+    return BCD2BIN(_bcdHours);
   else
     return _bcdHours;
 }
 
 uint8_t RTC4543::getMinutes(uint8_t form){
   if(form == IN_BIN)
-    return BCD2BIN(_bcdMinutes & 0x7F);
+    return BCD2BIN(_bcdMinutes);
   else
     return _bcdMinutes;
 }
 
 uint8_t RTC4543::getSeconds(uint8_t form){
   if(form == IN_BIN)
-    return BCD2BIN(_bcdSeconds & 0x7F);
+    return BCD2BIN(_bcdSeconds);
   else
     return _bcdSeconds;
 }
@@ -100,21 +100,21 @@ uint8_t RTC4543::getYear(uint8_t form){
 
 uint8_t RTC4543::getMonth(uint8_t form){
   if(form == IN_BIN)
-    return BCD2BIN(_bcdMonth & 0x1F);
+    return BCD2BIN(_bcdMonth);
   else
     return _bcdMonth;
 }
 
 uint8_t RTC4543::getDate(uint8_t form){
   if(form == IN_BIN)
-    return BCD2BIN(_bcdDate & 0x3F);
+    return BCD2BIN(_bcdDate);
   else
     return _bcdDate;
 }
 
 uint8_t RTC4543::getDay(uint8_t form){
   if(form == IN_BIN)
-    return BCD2BIN(_bcdDay & 0x07);
+    return BCD2BIN(_bcdDay);
   else
     return _bcdDay;
 }
